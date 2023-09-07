@@ -1,0 +1,138 @@
+/* Shared css */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+* {
+  font-family: "Inter", sans-serif;
+  box-sizing: content-box !important;
+}
+
+:root {
+  --board-width: 300px;
+  --blue: #1e90ff;
+  --white: #ffffff;
+  --outside-border: 10px;
+  --inside-border: 2px;
+  --inside--radius: 20px;
+}
+
+/* Alert css */
+.alert {
+  margin: 16px 0px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.alert .alert-heading {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 4px !important;
+}
+
+.alert p {
+  font-size: 14.5px;
+  margin-bottom: 2px !important;
+}
+
+.alert .btn-close {
+  font-size: 11px;
+  padding-top: 9px !important;
+}
+
+/* Common css */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.board {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  width: var(--board-width);
+  height: var(--board-width);
+  padding-right: var(--inside-border);
+  column-gap: var(--inside-border);
+  border: var(--outside-border) solid black;
+  background-color: #dddddd;
+}
+
+.piece {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  border: var(--inside-border) solid black;
+  border-radius: var(--inside--radius);
+  cursor: pointer;
+}
+
+.piece-child {
+  position: absolute;
+}
+
+.piece-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color:  #bbb;
+  border: 1px solid black;
+  animation: fade 0.5s infinite alternate; /* Use "alternate" to reverse animation direction */
+  opacity: 0; /* Start with opacity 0 to make it fade in */
+  transition: opacity 0.7s; /* Add transition for smooth fade effect */
+}
+
+@keyframes fade {
+  0%, 100% {
+    opacity: 0; /* Fully transparent at the beginning and end of animation */
+  }
+  50% {
+    opacity: 1; /* Fully opaque at the middle of animation */
+  }
+}
+
+.piece-txt {
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.board {
+  margin-top: 32px;
+  margin-bottom: 44px;
+}
+
+.board-reset {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.board-setting .row {
+  display: flex;
+  justify-content: center;
+}
+
+.st-col {
+  border-left: 1px solid silver;;
+}
+
+.st-header {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.st-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.board-setting li {
+  font-size: 15.5px;
+  margin-bottom: 5px;
+}
+
