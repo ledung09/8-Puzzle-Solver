@@ -21,7 +21,7 @@ function mapIdxij(idx) {
   return [2, 2]; // idx = 0
 }
 
-function adjPiece(piece_idx) {  
+function adjPiece(piece_idx) {
   if (piece_idx === 0) return [1, 3];
   if (piece_idx === 1) return [0, 2, 4];
   if (piece_idx === 2) return [1, 5];
@@ -45,7 +45,6 @@ export function heurCal(board) {
     for (let i = 0; i < 3; i++) {
       const [i_, j_] = mapIdxij(board[i + j * 3]);
       const dis = (i - i_) * (i - i_) + (j - j_) * (j - j_);
-      // const dis = Math.abs(i - i_) + Math.abs(j - j_)
       s += dis;
     }
   }
@@ -68,27 +67,18 @@ export function genChildBoard(board) {
 export function gameSolve(board) {
   const pq = new PriorityQueue(); //open set
   let exploredSet = []; // close set
-  let exploredSetFull = []; // close set
-
   const pq_expl = new PriorityQueueRetrieve(); //explore set full
 
   let id = 1;
   let treeLv = 1;
-
   let subBoards;
-
   let topQueue;
-
   let initState = [board, heurCal(board), 0, -1];
 
   pq.enqueue(initState);
 
   while (!pq.isEmpty()) {
-
     topQueue = pq.dequeue();
-
-    // console.log(topQueue)
-
     if (heurCal(topQueue[0]) === 0) {
       pq_expl.enqueue(topQueue);
       break;
@@ -98,84 +88,19 @@ export function gameSolve(board) {
     pq_expl.enqueue(topQueue);
 
     subBoards = genChildBoard(topQueue[0]);
-
-    // console.log("Top queue " + topQueue[0])
-
-    // console.log("Subboards: ")
-
-    // console.log(subBoards)
-
-    // console.log("Expset: ")
-
-    // console.log(exploredSet)
-
-    // console.log(`sad ${subBoards.length}`)
-
-
-
-
     for (let i = 0; i < subBoards.length; i++) {
-      // console.log("subboard i: " + subBoards[i])
       if (!containsArray(exploredSet, subBoards[i])) {
-        // console.log("dick")
         pq.enqueue([
           subBoards[i],
           treeLv + heurCal(subBoards[i]),
           id,
           topQueue[2],
         ]);
-        // console.log([subBoards[i], treeLv + heurCal(subBoards[i]), id, topQueue[2]])
-
         id++;
-      // console.log(id);
-
-
-
-
-
-
-
-
-
-
-
-
-      
-      if (id >= 200000) return [];
-
-      } else {
-        // console.log("duck")
+        if (id >= 180000) return [];
       }
-
-
-      // console.log(pq.peek())
     }
-
     treeLv++;
-    
-    // console.log(exploredSet)
   }
-
-
-
-
-
-  for (let idx = 0; idx < 20000 ; idx ++) {
-
-    
-  }
-
-  console.log("Done");
-  console.log(pq_expl.retrieve().length)
   return pq_expl.retrieve();
 }
-
-// const pq = new PriorityQueue();
-// pq.enqueue(["Task 1", 3, "data1", true]);
-// pq.enqueue(["Task 2", 1, "data2", false]);
-// pq.enqueue(["Task 3", 2, "data3", true]);
-
-// console.log(pq.dequeue()); // Output: ["Task 2", 1, "data2", false] (highest priority)
-// console.log(pq.dequeue()); // Output: ["Task 3", 2, "data3", true]
-// console.log(pq.dequeue()); // Output: ["Task 1", 3, "data1", true]
-// console.log(pq.isEmpty()); // Output: true

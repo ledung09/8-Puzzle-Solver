@@ -45,7 +45,6 @@
   align-items: center;
 }
 
-
 .board {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -78,7 +77,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color:  #bbb;
+  background-color: #bbb;
   border: 1px solid black;
   animation: fade 0.5s infinite alternate; /* Use "alternate" to reverse animation direction */
   opacity: 0; /* Start with opacity 0 to make it fade in */
@@ -86,7 +85,8 @@
 }
 
 @keyframes fade {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0; /* Fully transparent at the beginning and end of animation */
   }
   50% {
@@ -115,7 +115,7 @@
 }
 
 .st-col {
-  border-left: 1px solid silver;;
+  border-left: 1px solid silver;
 }
 
 .st-header {
@@ -134,5 +134,12 @@
 .board-setting li {
   font-size: 15.5px;
   margin-bottom: 5px;
+  text-align: justify;
 }
 
+.spinner-border {
+  margin-left: 6px !important;
+  width: 12px !important;
+  height: 12px !important;
+  border-width: 3px !important;
+}
