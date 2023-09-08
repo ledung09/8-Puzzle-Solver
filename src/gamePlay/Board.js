@@ -326,12 +326,15 @@ export default function Board() {
                 Solve
               </Button>
             </div>
-
-            {havSol === 0 ? (
-              <SolveUnDone />
-            ) : havSol === 1 ? (
-              <SolveDone />
+            <div className="non-mobile-sol">
+              {havSol === 0 ? (
+                <SolveUnDone />
+              ) : havSol === 1 ? (
+                <SolveDone />
             ) : null}
+            </div>
+
+            
           </Col>
           <Col className="st-col st-c3" xs={3}>
             <p className="st-header">Step 3: Step-by-step guide</p>
@@ -392,6 +395,13 @@ export default function Board() {
           </Col>
         </Row>
       </div>
+      <div className="mobile-sol">
+              {havSol === 0 ? (
+                <SolveUnDone />
+              ) : havSol === 1 ? (
+                <SolveDone />
+            ) : null}
+            </div>
     </div>
   );
 }

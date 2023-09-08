@@ -148,6 +148,10 @@
   display: none !important;
 }
 
+.mobile-sol {
+  display: none !important;
+}
+
 button {
   margin-bottom: 10px !important;
 }
@@ -179,6 +183,20 @@ button {
     display: flex !important;
     margin-left: 20px;
     margin-right: 50px;
+  }
+
+  .mobile-sol {
+    display: flex !important;
+    margin-bottom: 10px;
+  }
+
+  .mobile-sol .alert {
+    padding-left: 50px !important;
+    padding-right: 84px;
+  }
+
+  .non-mobile-sol {
+    display: none !important;
   }
 
   .solve-btn {
