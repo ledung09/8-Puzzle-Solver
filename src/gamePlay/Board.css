@@ -17,7 +17,7 @@
 
 /* Alert css */
 .alert {
-  margin: 16px 0px !important;
+  margin: 8px 0px 16px 0px !important;
   padding-top: 10px !important;
   padding-bottom: 10px !important;
 }
@@ -142,4 +142,46 @@
   width: 12px !important;
   height: 12px !important;
   border-width: 3px !important;
+}
+
+.mobile {
+  display: none !important;
+}
+
+button {
+  margin-bottom: 10px !important;
+}
+
+@media (max-width: 1200px) {
+  .board-setting li {
+    text-align: left !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .st-header {
+    display: none;
+  }
+
+  .board-setting ul {
+    display: none;
+  }
+
+  .st-col {
+    border: none;
+  }
+
+  .non-mobile {
+    display: none !important;
+  }
+
+  .mobile {
+    display: flex !important;
+    margin-left: 20px;
+    margin-right: 50px;
+  }
+
+  .solve-btn {
+    margin-right: 24px !important;
+  }
 }

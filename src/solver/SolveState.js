@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Alert from "react-bootstrap/Alert";
-import Spinner from "react-bootstrap/Spinner";
 
 export function SolveDone() {
   const [show, setShow] = useState(true);

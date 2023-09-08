@@ -317,6 +317,7 @@ export default function Board() {
             </ul>
             <div className="st-btn">
               <Button
+                className="solve-btn"
                 variant="outline-success"
                 onClick={() => {
                   solve();
@@ -347,19 +348,45 @@ export default function Board() {
 
             <div className="st-btn">
               {havSol === 1 ? (
-                <Button
-                  variant="outline-dark"
-                  onClick={() => {
-                    userPlay();
-                    setTmp(1);
-                  }}
-                >
-                  Step-by-step guide
-                </Button>
+                <>
+                  <Button
+                    className="non-mobile"
+                    variant="outline-dark"
+                    onClick={() => {
+                      userPlay();
+                      setTmp(1);
+                    }}
+                  >
+                    Step-by-step guide
+                  </Button>
+                  <Button
+                    className="mobile"
+                    variant="outline-dark"
+                    onClick={() => {
+                      userPlay();
+                      setTmp(1);
+                    }}
+                  >
+                    Walkthrough
+                  </Button>
+                </>
               ) : (
-                <Button variant="outline-dark" disabled>
-                  Step-by-step guide
+                <>
+                  <Button 
+                    className="non-mobile"
+                    variant="outline-dark" 
+                    disabled
+                  >
+                    Step-by-step guide
+                  </Button>
+                  <Button 
+                  className="mobile"
+                  variant="outline-dark" 
+                  disabled
+                >
+                  Walkthrough
                 </Button>
+              </>
               )}
             </div>
           </Col>
